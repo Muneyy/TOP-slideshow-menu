@@ -48,12 +48,18 @@ table {
 }
 
 /* CODE starts HERE */
+
+body {
+    width: 100%;
+}
 .header {
     background-color: bisque;
+    box-sizing: border-box;
     padding: 10px 20px;
     transition: 0.1s ease;
     position: sticky;
-    width: 100vw;
+    height: 5vh;
+    /* width: 100vw; */
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -82,13 +88,15 @@ button#hamburger-nav:hover {
 nav.nav-links {
     display: flex;
     flex-flow: column nowrap;
+    box-sizing: border-box;
     gap: 5px;
     padding: 5px 10px;
     background-color:bisque;
     transition: 0.3s ease;
     z-index: 1;
     width: 100vw;
-    /* position: absolute; */
+    position: absolute;
+    top: 50px;
 }
 
 nav.nav-links a {
@@ -104,9 +112,87 @@ nav.nav-links a:hover {
 .hidden {
     position: absolute;
     user-select: none;
-    transform: translate(0, -100%);
+    transform: translate(0, -200%);
 }
 
 .visible {
     opacity: 100;
 }
+
+.content {
+    display: grid;
+    grid-template-rows: 100px, 1fr;
+}
+
+.slideshow-container {
+    /* width: 100vw; */
+    /* display: flex; */
+    /* flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+}
+
+.nav-buttons {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50vh;
+    transform: translate(0, -50%);
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.nav-buttons > button {
+    /* box-sizing: border-box; */
+    width: 50px;
+    height: 50px;
+    opacity: 100%;
+    /* background-color: black; */
+    border: 0;
+}
+
+.slide {
+    /* width: 100vw; */
+    height: 95vh;
+    background-repeat: no-repeat;
+    display: none;
+    background-size: cover;
+}
+
+#image0 {
+    background-image: url(./images/minnie.jpg);
+    background-size: cover;
+    display: block;
+}
+
+#image1 {
+    background-image: url(./images/miyeon.jpg);
+}
+#image2 {
+    background-image: url(./images/shuhua.jpg);
+}
+#image3 {
+    background-image: url(./images/soojin.jpg);
+}
+#image4 {
+    background-image: url(./images/soyeon.jpg);
+}
+#image5 {
+    background-image: url(./images/yuqi.jpg);
+    background-position: 0 -300px;
+    background-repeat: no-repeat;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+    filter:brightness(100%)
+  }
+  
+  @keyframes fade {
+    from {filter:brightness(50%)} 
+    to {filter:brightness(100%)}
+  }
